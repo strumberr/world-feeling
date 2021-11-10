@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <body>
+    <form action="/" method="POST">
+      <center>
+        <br>
+        <h1>How are you feeling today?</h1>
+        <h2>This is a website that allows you to only tell how you're feeling and it will create a graph that shows everyone's response globally</h2>
+        <br>
+        <br>
+        <input style="width:10%; height:4%; border-radius: 10px;" type="submit" name="good" value="good" />
+        <br>
+        <br>
+        <input style="width:10%; height:4%; border-radius: 10px;" type="submit" name="neutral" value="neutral" />
+        <br>
+        <br>
+        <input style="width:10%; height:4%; border-radius: 10px;" type="submit" name="bad" value="bad" />
+        <br/>
+        <img src="{{url_for('static', filename='plot.jpg')}}" align="left" />
+      </center>
+  </body>
+<head>
+<html>

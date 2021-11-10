@@ -1,0 +1,16 @@
+<html lang="en">
+<head>
+  <body>
+    <form action="/" method="POST">
+      <center>
+        <br>
+        <h1>Thanks for submitting your feeling!</h1>
+        <h2>Global feeling chart below<h2>
+        <br>
+        <br>
+        <img src="{{url_for('static', filename='plot.jpg')}}" align="center" />
+        <div id="list"><p><iframe src="feelings_time.txt" width=200 height=400 frameborder=0 ></iframe></p></div>
+      </center>
+  </body>
+<head>
+<html>

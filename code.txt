@@ -1,0 +1,36 @@
+import matplotlib.pyplot as plt
+
+
+def good_neutral_bad():
+  
+  file = open("feelings.txt", "r")
+  line_count = 0
+  for line in file:
+      if line != "\n":
+          line_count += 1
+  file.close()
+
+  total = (360 / line_count) 
+
+  file = open("feelings.txt", "r")
+  data = file.read()
+  occurrences_good = data.count("good")
+  occurrences_neutral = data.count("neutral")
+  occurrences_bad = data.count("bad")
+
+  good_degrees = occurrences_good * total
+  neutral_degrees = occurrences_neutral * total
+  bad_degrees = occurrences_bad * total
+
+
+  # Pie chart, where the slices will be ordered and plotted counter-clockwise:
+  labels = 'Good', 'Neutral', 'Bad'
+  sizes = [good_degrees, neutral_degrees, bad_degrees]
+  explode = (0, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+  fig1, ax1 = plt.subplots()
+  ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+          shadow=True, startangle=90)
+  ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+  
+  return plt.show()

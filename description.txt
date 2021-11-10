@@ -1,0 +1,1 @@
+this is going to be a website where anyone can choose between good, neutral, and bad. Then the program will output a pie chart with the details of how many people responded, and what percentages and, etc.
