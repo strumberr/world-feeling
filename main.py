@@ -16,7 +16,6 @@ import pytz
 from datetime import date
 
 
-
 tz_Madrid = pytz.timezone('Europe/Madrid')
 datetime_Madrid = datetime.now(tz_Madrid)
 datetime_madrid = datetime_Madrid.strftime("%H:%M:%S")
