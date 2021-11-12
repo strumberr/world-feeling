@@ -1,14 +1,15 @@
 <html lang="en">
 <head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}" />
   <body>
     <form action="/" method="POST">
       <center>
         <br>
-        <h1>Thanks for submitting your feeling!</h1>
-        <h2>Global feeling chart below<h2>
+        <p style="font-size:50px; color:white;">Thanks for submitting your feeling!</p>
+        <p style="font-size:40px; color:white;">Global feeling chart below</p>
         <br>
         <br>
-        <img src="{{url_for('static', filename='plot.png')}}" align="center" style="border-radius: 15px;"/>
+        <img src="{{url_for('static', filename='plot.png')}}" align="center" style="border-radius: 15px; width:680px; height:500px; border-radius: 15px;""/>
         <p>{{result}}<p>
       </center>
   </body>
