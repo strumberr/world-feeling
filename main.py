@@ -113,11 +113,12 @@ def good_neutral_bad():
     # Pie chart, where the slices will be ordered and plotted counter-clockwise:
     labels = 'Good', 'Neutral', 'Bad'
     sizes = [good_degrees, neutral_degrees, bad_degrees]
-    explode = (0, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+    explode = (0.02, 0.02, 0.02)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
 
     fig1, ax1 = plt.subplots()
     ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
-            shadow=True, startangle=90)
+            startangle=90, textprops={'fontsize': 20})
     ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     print("Refreshing Graph...")
 

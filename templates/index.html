@@ -7,16 +7,37 @@
     <form action="/" method="POST">
       <center>
         <br>
-        <h1>How are you feeling today?</h1>
-        <h2>This is a website that allows you to only tell how you're feeling and it will create a graph that shows everyone's response globally</h2>
+        <br>
+        <br>
+        <img src="https://i.ibb.co/tcgTsL5/futureworld-1.png"</a>
         <br>
         <br>
         <br>
-        <input style="width:10%; height:4%; border-radius: 10px;" type="submit" name="good" value="good" />
-        <input style="width:10%; height:4%; border-radius: 10px;" type="submit" name="neutral" value="neutral" />
-        <input style="width:10%; height:4%; border-radius: 10px;" type="submit" name="bad" value="bad" />
-        <img src="{{url_for('static', filename='plot.png')}}" align="left" style="width:400px; height:300px;"/>
+        <p style="font-size:20px; color:white;">Choose from a button below how you are feeling - This is a website that allows you to tell how you're feeling, and it will create a graph that shows everyone's response globally</p>
+        <br>
+        <br>
+        <br>
+        <button type="submit" name="good" value="good" class="button-64" role="button"><span class="text">Good</span></button>
+        <br>
+        <button type="submit" name="neutral" value="neutral" class="button-65" role="button"><span class="text">Neutral</span></button>
+        <br>
+        <button type="submit" name="bad" value="bad" class="button-66" role="button"><span class="text">Bad</span></button>
+        <br>
+        <br>
+        <br>
+        <img class="plot" src="{{url_for('static', filename='plot.png')}}" align="center" style="width:400px; height:300px; border-radius: 15px;"/>
+
+
+
+
+
+
+
+
+
+
       </center>
   </body>
 <head>
 <html>
+
