@@ -16,16 +16,23 @@ import pytz
 from datetime import date
 
 
+
+
 tz_Madrid = pytz.timezone('Europe/Madrid')
 datetime_Madrid = datetime.now(tz_Madrid)
 datetime_madrid = datetime_Madrid.strftime("%H:%M:%S")
 date_today = str(date.today())
 
 
+
+
 @app.route('/', methods=["GET", "POST"]) # Route the Function
 def main(): # Run the function
   if request.method == "GET":
-	  return render_template("index.html", result="How are you feeling?")
+
+
+    good_neutral_bad()
+    return render_template("index.html", result="How are you feeling?")
   else:
     # get the input from the template that the user submitted
     if "good" in request.form.keys():
@@ -38,6 +45,7 @@ def main(): # Run the function
       f.write(good2)
       f.close()
 
+
     elif "bad" in request.form.keys():
       f = open("feelings.txt", "a")
       bad2 = "bad \n"
@@ -47,6 +55,7 @@ def main(): # Run the function
       bad2 = date_today + " - " + datetime_madrid + " - bad \n"
       f.write(bad2)
       f.close()
+
 
     elif "neutral" in request.form.keys():
       f = open("feelings.txt", "a")
@@ -58,6 +67,13 @@ def main(): # Run the function
       f.write(neutral2)
       f.close()
 
+
+
+  
+      
+  
+
+
     # Pass that input to the bot and get a result
 
     # result = good_neutral_bad(input)
@@ -65,6 +81,7 @@ def main(): # Run the function
     
     # render the index.html template but this time with result
     # which can be access in the template
+    good_neutral_bad()
     return render_template("feeling.html")
 
 
@@ -105,7 +122,8 @@ def good_neutral_bad():
     print("Refreshing Graph...")
 
 
-    return plt.savefig('static/plot.jpg', format="jpg", dpi=72)
+
+    return plt.savefig('static/plot.png', format="png", dpi=72)
   except:
     pass
 
@@ -113,8 +131,6 @@ def good_neutral_bad():
 
 
 
-sched = BackgroundScheduler(daemon=True)
-sched.add_job(good_neutral_bad,'interval',seconds=5)
-sched.start()
+
 
 app.run(host='0.0.0.0', port=5000, debug=True) # Run the Application (in debug mode)

@@ -1,5 +1,8 @@
 <html lang="en">
 <head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}" />
+</head>
+  <body>
   <body>
     <form action="/" method="POST">
       <center>
@@ -8,15 +11,11 @@
         <h2>This is a website that allows you to only tell how you're feeling and it will create a graph that shows everyone's response globally</h2>
         <br>
         <br>
+        <br>
         <input style="width:10%; height:4%; border-radius: 10px;" type="submit" name="good" value="good" />
-        <br>
-        <br>
         <input style="width:10%; height:4%; border-radius: 10px;" type="submit" name="neutral" value="neutral" />
-        <br>
-        <br>
         <input style="width:10%; height:4%; border-radius: 10px;" type="submit" name="bad" value="bad" />
-        <br/>
-        <img src="{{url_for('static', filename='plot.jpg')}}" align="left" />
+        <img src="{{url_for('static', filename='plot.png')}}" align="left" style="width:400px; height:300px;"/>
       </center>
   </body>
 <head>
