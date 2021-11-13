@@ -1,29 +1,37 @@
 <html lang="en">
-<head>
+  <head>
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}" />
-</head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;300;500&display=swap" rel="stylesheet">
+  </head>
   <body>
   <body>
     <form action="/" method="POST">
       <center>
         <br>
-        <br>
-        <br>
-        <img src="https://i.ibb.co/tcgTsL5/futureworld-1.png" style="width:80%;"</a>
-        <br>
-        <br>
-        <br>
-        <p style="font-size:40px; color:white; margin-right: 50px; margin-left: 50px">Choose from a button below how you are feeling - This is a website that allows you to tell how you're feeling, and it will create a graph that shows everyone's response globally</p>
-        <br>
-        <br>
+          <style>
+          h1 {
+            color:white; font-size:80px; font-weight: 500; font-family: 'MuseoModerno', cursive ;
+          }
+
+          p {
+           font-size:30px; font-weight: 300; font-family: 'MuseoModerno', cursive;
+          }
+
+          br {
+            line-height: 50%;
+          }
+
+          </style>
+        <h1>How are you feeling today?<h1>
+        <p style="font-size:30px; color:white; margin-right: 50px; margin-left: 50px">Choose from a button below how you are feeling - This is a website that allows you to tell how you're feeling, and it will create a graph that shows everyone's response globally</p>
         <br>
         <button type="submit" name="good" value="good" class="button-64" role="button"><span class="text">Good</span></button>
         <br>
         <button type="submit" name="neutral" value="neutral" class="button-65" role="button"><span class="text">Neutral</span></button>
         <br>
         <button type="submit" name="bad" value="bad" class="button-66" role="button"><span class="text">Bad</span></button>
-        <br>
-        <br>
         <br>
         <img class="plot" src="{{url_for('static', filename='plot.png')}}" align="center" style="width:680px; height:500px; border-radius: 15px;"/>
 

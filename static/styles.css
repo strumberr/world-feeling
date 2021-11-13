@@ -43,7 +43,7 @@ body {
   box-sizing: border-box;
   color: #FFFFFF;
   display: flex;
-  font-family: Phantomsans, sans-serif;
+  font-family: MuseoModerno;
   font-size: 20px;
   justify-content: center;
   line-height: 1em;
@@ -79,7 +79,7 @@ body {
 @media (min-width: 768px) {
   .button-64 {
     font-size: 24px;
-    min-width: 196px;
+    min-width: 350px;
   }
 }
 
@@ -97,7 +97,7 @@ body {
   box-sizing: border-box;
   color: #FFFFFF;
   display: flex;
-  font-family: Phantomsans, sans-serif;
+  font-family: MuseoModerno;
   font-size: 20px;
   justify-content: center;
   line-height: 1em;
@@ -133,7 +133,7 @@ body {
 @media (min-width: 768px) {
   .button-65 {
     font-size: 24px;
-    min-width: 196px;
+    min-width: 300px;
   }
 }
 
@@ -149,7 +149,7 @@ body {
   box-sizing: border-box;
   color: #FFFFFF;
   display: flex;
-  font-family: Phantomsans, sans-serif;
+  font-family: MuseoModerno;
   font-size: 20px;
   justify-content: center;
   line-height: 1em;
@@ -185,7 +185,7 @@ body {
 @media (min-width: 768px) {
   .button-66 {
     font-size: 24px;
-    min-width: 196px;
+    min-width: 250px;
   }
 }
 
