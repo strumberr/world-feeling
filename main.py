@@ -2,8 +2,9 @@ from flask import Flask, render_template, request # Import Flask Class
 app = Flask(__name__) # Create an Instance
 #from function import good_neutral_bad
 import time
-from flask import request
-from flask import jsonify
+import requests
+import json
+from flask import abort, request, jsonify
 import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
 import matplotlib as mpl
@@ -14,15 +15,19 @@ import os
 from datetime import datetime
 import pytz
 from datetime import date
+import time
+from datetime import date
+from datetime import datetime
 
 
 
+now = datetime.now()
+datetime_madrid2 = now.strftime("%H:%M:%S")
+datetime_madrid = datetime_madrid2
+print(datetime_madrid)
 
-tz_Madrid = pytz.timezone('Europe/Madrid')
-datetime_Madrid = datetime.now(tz_Madrid)
-datetime_madrid = datetime_Madrid.strftime("%H:%M:%S")
-date_today = str(date.today())
-
+date_today2 = date.today()
+date_today = str(date_today2)
 
 
 
@@ -46,6 +51,46 @@ def main(): # Run the function
       f.close()
 
 
+      if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
+        ip = (request.environ['REMOTE_ADDR'])
+        print(ip)
+        f = open("ipaddress.txt", "a")
+        ipaddress = ip + "\n"
+        f.write(ipaddress)
+        f.close()
+      else:
+        ip1 = (request.environ['HTTP_X_FORWARDED_FOR']) # if behind a proxy
+        print(ip1)
+        f = open("ipaddress.txt", "a")
+        ipaddress = ip1 + "\n"
+        f.write(ipaddress)
+        f.close()
+
+        ip_address = ip1
+
+        # URL to send the request to
+        request_url = 'https://geolocation-db.com/jsonp/' + ip_address
+        # Send request and decode the result
+        response = requests.get(request_url)
+        result = response.content.decode()
+        # Clean the returned string so it just contains the dictionary data for the IP address
+        result = result.split("(")[1].strip(")")
+        # Convert this data into a dictionary
+        result  = json.loads(result)
+        result2 = json.dumps(result)
+        result3 = result2.split()
+        print(result3[3])
+        f = open("alldata.txt", "a")
+        ipaddress = "IP = " + ip1 + " -- Location = " + result3[3] + " -- Day = " + date_today + " -- Time = " + datetime_madrid + " -- Feeling = good" + "\n"
+        f.write(ipaddress)
+        f.close()
+
+
+
+
+      
+
+
     elif "bad" in request.form.keys():
       f = open("feelings.txt", "a")
       bad2 = "bad \n"
@@ -55,6 +100,46 @@ def main(): # Run the function
       bad2 = date_today + " - " + datetime_madrid + " - bad \n"
       f.write(bad2)
       f.close()
+
+
+      if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
+        ip = (request.environ['REMOTE_ADDR'])
+        print(ip)
+        f = open("ipaddress.txt", "a")
+        ipaddress = ip + "\n"
+        f.write(ipaddress)
+        f.close()
+      else:
+        ip1 = (request.environ['HTTP_X_FORWARDED_FOR']) # if behind a proxy
+        print(ip1)
+        f = open("ipaddress.txt", "a")
+        ipaddress = ip1 + "\n"
+        f.write(ipaddress)
+        f.close()
+
+        ip_address = ip1
+
+        # URL to send the request to
+        request_url = 'https://geolocation-db.com/jsonp/' + ip_address
+        # Send request and decode the result
+        response = requests.get(request_url)
+        result = response.content.decode()
+        # Clean the returned string so it just contains the dictionary data for the IP address
+        result = result.split("(")[1].strip(")")
+        # Convert this data into a dictionary
+        result  = json.loads(result)
+        result2 = json.dumps(result)
+        result3 = result2.split()
+        print(result3[3])
+        f = open("alldata.txt", "a")
+        ipaddress = "IP = " + ip1 + " -- Location = " + result3[3] + " -- Day = " + date_today + " -- Time = " + datetime_madrid + " -- Feeling = bad" + "\n"
+        f.write(ipaddress)
+        f.close()
+
+
+
+
+
 
 
     elif "neutral" in request.form.keys():
@@ -68,10 +153,41 @@ def main(): # Run the function
       f.close()
 
 
+      if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
+        ip = (request.environ['REMOTE_ADDR'])
+        print(ip)
+        f = open("ipaddress.txt", "a")
+        ipaddress = ip + "\n"
+        f.write(ipaddress)
+        f.close()
+      else:
+        ip1 = (request.environ['HTTP_X_FORWARDED_FOR']) # if behind a proxy
+        print(ip1)
+        f = open("ipaddress.txt", "a")
+        ipaddress = ip1 + "\n"
+        f.write(ipaddress)
+        f.close()
 
-  
-      
-  
+        ip_address = ip1
+
+        # URL to send the request to
+        request_url = 'https://geolocation-db.com/jsonp/' + ip_address
+        # Send request and decode the result
+        response = requests.get(request_url)
+        result = response.content.decode()
+        # Clean the returned string so it just contains the dictionary data for the IP address
+        result = result.split("(")[1].strip(")")
+        # Convert this data into a dictionary
+        result  = json.loads(result)
+        result2 = json.dumps(result)
+        result3 = result2.split()
+        print(result3[3])
+        f = open("alldata.txt", "a")
+        ipaddress = "IP = " + ip1 + " -- Location = " + result3[3] + " -- Day = " + date_today + " -- Time = " + datetime_madrid + " -- Feeling = neutral" + "\n"
+        f.write(ipaddress)
+        f.close()
+
+
 
 
     # Pass that input to the bot and get a result
@@ -83,7 +199,6 @@ def main(): # Run the function
     # which can be access in the template
     good_neutral_bad()
     return render_template("feeling.html")
-
 
 
 
