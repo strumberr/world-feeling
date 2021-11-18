@@ -18,6 +18,23 @@ from datetime import date
 import time
 from datetime import date
 from datetime import datetime
+import sqlite3
+con = sqlite3.connect('database.db', check_same_thread=False)
+
+
+
+def create_db(IP, Location, Day, Time, Feeling):
+    with con:
+        cur = con.cursor()
+        cur.execute("INSERT INTO alldata VALUES (?, ?, ?, ?, ?);", (IP, Location, Day, Time, Feeling))
+
+        ## call commit on the connection...
+        con.commit()
+        for row in cur.execute('SELECT * FROM alldata'):
+          print(row)
+
+
+
 
 
 
@@ -28,6 +45,9 @@ print(datetime_madrid)
 
 date_today2 = date.today()
 date_today = str(date_today2)
+
+
+
 
 
 
@@ -84,6 +104,11 @@ def main(): # Run the function
         ipaddress = "IP = " + ip1 + " -- Location = " + result3[3] + " -- Day = " + date_today + " -- Time = " + datetime_madrid + " -- Feeling = good" + "\n"
         f.write(ipaddress)
         f.close()
+      create_db(ip1, result3[3], date_today, datetime_madrid, "good")
+
+      
+
+
 
 
 
@@ -135,6 +160,7 @@ def main(): # Run the function
         ipaddress = "IP = " + ip1 + " -- Location = " + result3[3] + " -- Day = " + date_today + " -- Time = " + datetime_madrid + " -- Feeling = bad" + "\n"
         f.write(ipaddress)
         f.close()
+      create_db(ip1, result3[3], date_today, datetime_madrid, "bad")
 
 
 
@@ -186,14 +212,12 @@ def main(): # Run the function
         ipaddress = "IP = " + ip1 + " -- Location = " + result3[3] + " -- Day = " + date_today + " -- Time = " + datetime_madrid + " -- Feeling = neutral" + "\n"
         f.write(ipaddress)
         f.close()
+      create_db(ip1, result3[3], date_today, datetime_madrid, "neutral")
 
 
 
 
-    # Pass that input to the bot and get a result
-
-    # result = good_neutral_bad(input)
-
+  
     
     # render the index.html template but this time with result
     # which can be access in the template
@@ -245,8 +269,6 @@ def good_neutral_bad():
     return plt.savefig('static/plot.png', format="png", dpi=72)
   except:
     pass
-
-
 
 
 
