@@ -2,6 +2,9 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;300;500&display=swap" rel="stylesheet">
 
 <body>
     <form action="/" method="POST">
@@ -11,7 +14,17 @@
             <p style="font-size:40px; color:white;">Global feeling chart below</p>
             <br>
             <br>
+            <p>Last person's answer - {{ lastentry }}</p>
             <img class="plot" src="{{url_for('static', filename='plot.png')}}" align="center" style="width:680px; height:500px; border-radius: 15px;" />
+            <style>
+              p {
+                    font-size: 30px;
+                    font-weight: 300;
+                    font-family: 'MuseoModerno', cursive;
+                    color: white;
+            </style>
+            
+            
 
         </center>
 </body>

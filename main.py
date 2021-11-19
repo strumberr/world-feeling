@@ -26,12 +26,14 @@ con = sqlite3.connect('database.db', check_same_thread=False)
 def create_db(IP, Location, Day, Time, Feeling):
     with con:
         cur = con.cursor()
+
         cur.execute("INSERT INTO alldata VALUES (?, ?, ?, ?, ?);", (IP, Location, Day, Time, Feeling))
 
         ## call commit on the connection...
         con.commit()
         for row in cur.execute('SELECT * FROM alldata'):
           print(row)
+
 
 
 
@@ -55,9 +57,15 @@ date_today = str(date_today2)
 def main(): # Run the function
   if request.method == "GET":
 
-
     good_neutral_bad()
-    return render_template("index.html", result="How are you feeling?")
+    cur = con.cursor()
+    last_row2 = cur.execute('select Location, Feeling from alldata').fetchall()[-1]
+    last_row1 = list(last_row2)
+    last_1 = last_row1[0]
+    last_2 = last_row1[1]
+    last_row = "Location: " + last_1 + " ... " + "Feeling: " + last_2
+
+    return render_template("index.html", lastentry = last_row)
   else:
     # get the input from the template that the user submitted
     if "good" in request.form.keys():
@@ -104,7 +112,9 @@ def main(): # Run the function
         ipaddress = "IP = " + ip1 + " -- Location = " + result3[3] + " -- Day = " + date_today + " -- Time = " + datetime_madrid + " -- Feeling = good" + "\n"
         f.write(ipaddress)
         f.close()
-      create_db(ip1, result3[3], date_today, datetime_madrid, "good")
+      location2 = str(result3[3].replace('"', ''))
+      location = location2.replace(',', '')
+      create_db(ip1, location, date_today, datetime_madrid, "good")
 
       
 
@@ -160,7 +170,9 @@ def main(): # Run the function
         ipaddress = "IP = " + ip1 + " -- Location = " + result3[3] + " -- Day = " + date_today + " -- Time = " + datetime_madrid + " -- Feeling = bad" + "\n"
         f.write(ipaddress)
         f.close()
-      create_db(ip1, result3[3], date_today, datetime_madrid, "bad")
+      location2 = str(result3[3].replace('"', ''))
+      location = location2.replace(',', '')
+      create_db(ip1, location, date_today, datetime_madrid, "bad")
 
 
 
@@ -212,7 +224,9 @@ def main(): # Run the function
         ipaddress = "IP = " + ip1 + " -- Location = " + result3[3] + " -- Day = " + date_today + " -- Time = " + datetime_madrid + " -- Feeling = neutral" + "\n"
         f.write(ipaddress)
         f.close()
-      create_db(ip1, result3[3], date_today, datetime_madrid, "neutral")
+      location2 = str(result3[3].replace('"', ''))
+      location = location2.replace(',', '')
+      create_db(ip1, location, date_today, datetime_madrid, "neutral")
 
 
 
@@ -222,7 +236,13 @@ def main(): # Run the function
     # render the index.html template but this time with result
     # which can be access in the template
     good_neutral_bad()
-    return render_template("feeling.html")
+    cur = con.cursor()
+    last_row2 = cur.execute('select Location, Feeling from alldata').fetchall()[-1]
+    last_row1 = list(last_row2)
+    last_1 = last_row1[0]
+    last_2 = last_row1[1]
+    last_row = "Location: " + last_1 + " ... " + "Feeling: " + last_2
+    return render_template("feeling.html", lastentry = last_row)
 
 
 
@@ -269,8 +289,6 @@ def good_neutral_bad():
     return plt.savefig('static/plot.png', format="png", dpi=72)
   except:
     pass
-
-
 
 
 

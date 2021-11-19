@@ -1,15 +1,3 @@
 IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-17 -- Time = 14:44:46 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-17 -- Time = 14:57:31 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-17 -- Time = 14:57:31 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 09:44:28 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 09:45:34 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 09:46:03 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 09:46:54 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 09:53:30 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 09:55:54 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 09:58:39 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 09:59:21 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 09:59:57 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 10:00:19 -- Feeling = good
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 10:01:10 -- Feeling = bad
-IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-18 -- Time = 10:01:10 -- Feeling = neutral
+IP = 90.71.249.159 -- Location = "Spain", -- Day = 2021-11-19 -- Time = 12:20:28 -- Feeling = neutral
+IP = 90.71.249.159 -- Location = "Spain", -- Day = 2021-11-19 -- Time = 12:20:28 -- Feeling = bad
