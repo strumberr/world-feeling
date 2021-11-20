@@ -1,3 +1,7 @@
 IP = 2.136.101.19 -- Location = "Spain", -- Day = 2021-11-17 -- Time = 14:44:46 -- Feeling = good
 IP = 90.71.249.159 -- Location = "Spain", -- Day = 2021-11-19 -- Time = 12:20:28 -- Feeling = neutral
 IP = 90.71.249.159 -- Location = "Spain", -- Day = 2021-11-19 -- Time = 12:20:28 -- Feeling = bad
+IP = 90.71.249.159 -- Location = "Spain", -- Day = 2021-11-19 -- Time = 14:59:04 -- Feeling = neutral
+IP = 90.71.249.159 -- Location = "Spain", -- Day = 2021-11-19 -- Time = 20:10:26 -- Feeling = good
+IP = 90.71.249.159 -- Location = "Spain", -- Day = 2021-11-19 -- Time = 20:18:16 -- Feeling = neutral
+IP = 176.248.137.243 -- Location = "United -- Day = 2021-11-20 -- Time = 20:24:20 -- Feeling = neutral

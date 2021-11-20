@@ -31,8 +31,7 @@ def create_db(IP, Location, Day, Time, Feeling):
 
         ## call commit on the connection...
         con.commit()
-        for row in cur.execute('SELECT * FROM alldata'):
-          print(row)
+
 
 
 
@@ -243,6 +242,35 @@ def main(): # Run the function
     last_2 = last_row1[1]
     last_row = "Location: " + last_1 + " ... " + "Feeling: " + last_2
     return render_template("feeling.html", lastentry = last_row)
+
+
+
+
+
+
+@app.route('/contact', methods=["GET", "POST"])
+def contact_form():
+  
+    name = request.form.get("name")
+    f = open("contact.txt", "a")
+    name2 = "NAME - " + name + "\n"
+    f.write(name2)
+    f.close()
+
+    email = request.form.get("email")
+    f = open("contact.txt", "a")
+    email2 = "EMAIL - " + email + "\n"
+    f.write(email2)
+    f.close()
+
+    message = request.form.get("message")
+    f = open("contact.txt", "a")
+    message2 = "MESSAGE - " + message + "\n \n \n"
+    f.write(message2)
+    f.close()
+
+
+    return render_template("contact.html")
 
 
 
