@@ -244,7 +244,9 @@ def main(): # Run the function
     return render_template("feeling.html", lastentry = last_row)
 
 
-
+@app.route("/backhome")
+def back_home():
+  return render_template('index.html')
 
 
 
@@ -253,24 +255,35 @@ def contact_form():
   
     name = request.form.get("name")
     f = open("contact.txt", "a")
-    name2 = "NAME - " + name + "\n"
+    name2 = "NAME - " + str(name) + "\n"
     f.write(name2)
     f.close()
 
     email = request.form.get("email")
     f = open("contact.txt", "a")
-    email2 = "EMAIL - " + email + "\n"
+    email2 = "EMAIL - " + str(email) + "\n"
     f.write(email2)
     f.close()
 
+
     message = request.form.get("message")
     f = open("contact.txt", "a")
-    message2 = "MESSAGE - " + message + "\n \n \n"
+    message2 = "MESSAGE - " + str(message) + "\n \n \n"
     f.write(message2)
     f.close()
 
 
+    if "submit" in request.form.keys():
+      return render_template("contactsuccess.html")
+
+
+
+
     return render_template("contact.html")
+
+
+
+
 
 
 

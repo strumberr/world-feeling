@@ -32,14 +32,14 @@
                 }
                 </style>
                 <h1>How are you feeling today?<h1>
-                        <p style="font-size:30px; color:white; margin-right: 50px; margin-left: 50px">This is a website that allows you to tell how you're feeling, simply choose an option below and it will create a graph that shows everyone's response globally</p>
-                        <a href="https://www.blahrobot.com/contact">link text</a>
+                        <p style="font-size:30px; color:white; margin-right: 50px; margin-left: 50px">This is a website that allows you to tell how you're feeling, simply choose an option below and it will create a graph that shows everyone's response globally. Below there's a graph</p>
                         <br>
                         <button type="submit" name="good" value="good" class="button-64" role="button"><span class="text">Good</span></button>
                         <br>
                         <button type="submit" name="neutral" value="neutral" class="button-65" role="button"><span class="text">Neutral</span></button>
                         <br>
                         <button type="submit" name="bad" value="bad" class="button-66" role="button"><span class="text">Bad</span></button>
+                        <a style="font-size: 40px" href="https://www.blahrobot.com/contact">contact us</a>
                         <br>
                         <p>Last person's answer - {{ lastentry }}</p>
                         <img class="plot" src="{{url_for('static', filename='plot.png')}}" align="center" style="width:680px; height:500px; border-radius: 15px;" />
